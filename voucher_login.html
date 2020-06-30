@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>$gatewayname</title>
+    <style>
+        body {
+            color: black;
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+
+        .text-grey {
+            color: black;
+        }
+
+        .text-blue {
+            color: #344684
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .welcomeText {
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .gatewayName {
+            color: black;
+            font-size: 20px;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .bkg-white {
+            background-color: #FFFFFF;
+        }
+
+        .bkg-grey {
+            background-color: #F8F8F8;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+
+        input:focus {
+            border: 0px;
+            border-bottom: 1px solid #3D3D3D
+        }
+
+        input:active {
+            border: 0px;
+            border-bottom: 1px solid #3D3D3D
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .loginCred {
+            border: 1px solid #0000001A;
+        }
+
+        .loginCred:focus {
+            border: 1px solid #344684;
+        }
+
+        .adSpace {
+            display: none;
+        }
+
+        .loginSection {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 20;
+            overflow-x: hidden;
+            right: 0;
+        }
+
+        .mobileCenter {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* text-align: center; */
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .loginBtn {
+            font-size: 15px;
+            width: 80%;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+            background-color: #344684;
+        }
+
+        .voucherBtn {
+            font-size: 15px;
+            width: 80%;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid #6E6E6E;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: #6E6E6E;
+            background-color: #FFFFFF;
+        }
+
+        .dntHave {
+            font-size: 12px;
+            color: #3D3D3D;
+            margin: 0;
+        }
+
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+
+        .mobilebilling {
+            font-size: 14px;
+            color: black;
+            margin-bottom: 3rem;
+            margin-top: 1rem;
+        }
+
+        .mobilebilling>span {
+            font-size: 14px;
+            color: #000000
+        }
+
+
+
+        label {
+            font-size: 14px;
+            cursor: pointer;
+            color: #3D3D3D;
+        }
+
+        input {
+            display: none;
+        }
+
+        .adImg {
+            max-height: 70vh;
+            width: auto;
+        }
+
+        .ad {
+            width: -webkit-fill-available;
+            height: 100%;
+        }
+
+        .none {
+            display: none
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            background-color: #828282;
+            color: #FFFFFF !important;
+            font-size: 12px;
+            border-radius: 100%;
+            height: 15px;
+            width: 15px;
+            text-align: center;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .appLinks {
+            color: #6B83D8 !important;
+            border-bottom: 1px solid #6B83D8 !important;
+        }
+
+        .poweredby {
+            margin-top: 0px;
+            color: #6E6E6E;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .download {
+            text-align: center;
+        }
+
+        .updownloads {
+            border-top: 1px solid #DCDCDC;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
+        .congrats {
+            font-size: 50px;
+            color: #66BB2F;
+            margin-bottom: 0px;
+        }
+
+        @keyframes slidy {
+            0% {
+                left: 0%;
+            }
+
+            20% {
+                left: 0%;
+            }
+
+            25% {
+                left: -100%;
+            }
+
+            45% {
+                left: -100%;
+            }
+
+            50% {
+                left: -200%;
+            }
+
+            70% {
+                left: -200%;
+            }
+
+            75% {
+                left: -300%;
+            }
+
+            95% {
+                left: -300%;
+            }
+
+            100% {
+                left: -400%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        figure {
+            margin: 0;
+            background: #D4D4D4;
+        }
+
+
+        div#captioned-gallery {
+            max-width: 500px;
+            overflow: hidden;
+            height: 500px;
+        }
+
+        figure.slider {
+            position: relative;
+            width: 500%;
+            font-size: 0;
+            animation: 20s slidy infinite;
+            height: 100%;
+        }
+
+        figure.slider figure {
+            width: 20%;
+            height: 100%;
+            display: inline-block;
+            position: inherit;
+        }
+
+        figure.slider img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 0px 50px 0px 50px;
+        }
+
+        .goHome {
+            color: #434343;
+            font-size: 18px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .t-14{
+            font-size: 14px;
+        }
+        .t-15 {
+            font-size: 15px;
+        }
+
+        .errorMsgs {
+            color: rgb(243, 75, 75);
+            font-size: 14px;
+            background-color: #FEEEEE;
+            padding: 5px;
+        }
+
+
+        @media (min-width: 992px) and (min-height: 600px) {
+            .download {
+                text-align: left;
+            }
+
+            .poweredby {
+                margin-top: 10px;
+            }
+
+            .mobileSlide {
+                display: none;
+            }
+
+            .adSpace {
+                display: block;
+                height: 100%;
+                width: 60%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                left: 0;
+            }
+
+            .loginSection {
+                height: 100%;
+                width: 40%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                right: 0;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+                text-align: center;
+                left: 65%;
+                padding: 0px;
+                height: 10%
+            }
+
+            .mobileCenter {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                width: 100%;
+                height: 100%
+            }
+
+            .card {
+                padding: 1.25rem 2.25rem;
+                box-shadow: 0px 1px 8px #DCDCDC;
+                border-radius: 10px;
+                opacity: 1;
+            }
+
+            .mobilebilling {
+                display: none;
+            }
+
+            .billing {
+                display: block;
+                font-size: 13px;
+                color: black;
+                margin-bottom: 2rem;
+                margin-top: 1rem;
+            }
+
+            .billing>span {
+                font-size: 14px;
+                color: #000000
+            }
+
+            .slider>.slide-description {
+                position: absolute;
+                width: 50%;
+                /* top: calc(50% - 3vw); */
+                top: 20%;
+                left: 25%;
+                z-index: 200;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            div#captioned-gallery {
+
+                max-width: 500px;
+                overflow: hidden;
+                height: 500px;
+
+            }
+
+            .card {
+                width: 95%;
+                height: 90%
+            }
+
+
+        }
+        .lds-ellipsis {
+            display: inline-block;
+            position: relative;
+            top: -32px;
+            right: 15%;
+
+        }
+
+        .lds-ellipsis div {
+            position: absolute;
+            top: 20px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #F5F5F5;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+
+        .lds-ellipsis div:nth-child(1) {
+            left: 8px;
+            /* background:#D4FCFF; */
+            background: #F5F5F5;
+            animation: lds-ellipsis1 1s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(2) {
+            left: 8px;
+            animation: lds-ellipsis2 1s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(3) {
+            /* background:#D4FCFF; */
+            background: #F5F5F5;
+            left: 32px;
+            animation: lds-ellipsis2 1s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(4) {
+            left: 56px;
+            animation: lds-ellipsis3 1s infinite;
+        }
+
+        @keyframes lds-ellipsis1 {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes lds-ellipsis3 {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes lds-ellipsis2 {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(24px, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div class='adSpace bkg-white'>
+            <div class="ad">
+                <div id="captioned-gallery" class="centered ">
+                    <figure class="slider">
+                        <figure>
+                            <a target='blank' href="https://www.kopasaids.com.ng/">
+                                <img src="$router_base_url/$imageone">
+                            </a>
+                        </figure>
+                        <figure>
+                            <a target='blank' href="https://www.kopasaids.com.ng/">
+                                <img src="$router_base_url/$imagetwo">
+                            </a>
+                        </figure>
+                        <figure>
+                            <a target='blank' href="https://www.kopasaids.com.ng/">
+                                <img src="$router_base_url/$imagethree">
+                            </a>
+                        </figure>
+                        <figure>
+                            <a target='blank' href="https://www.kopasaids.com.ng/">
+                                <img src="$router_base_url/$imageone">
+                            </a>
+                        </figure>
+                        <figure>
+                            <a target='blank' href="https://www.kopasaids.com.ng/">
+                                <img src="$router_base_url/$imagetwo">
+                            </a>
+                        </figure>
+                    </figure>
+                </div>
+            </div>
+
+        </div>
+
+        <div class='bkg-white loginSection'>
+
+
+            <div class="mobileCenter">
+                <div class="card">
+
+                    <div class='goHome'>
+
+                        <a class='text-grey' href="/">
+                            < Home</a>
+                    </div>
+
+
+
+                    <div>
+
+                        <p class='text-grey'>
+                            <span class='gatewayName bold'> Voucher Login</span>
+                        </p>
+                        <p class='billing text-left'>For access to the internet, please enter your Phone Number and
+                            Voucher Code</p>
+
+                        <p class='text-grey bold mb-3 t-14 text-left'>
+                            NOTE:
+                            Please use the Phone Number your Vocher Code was sent to
+                        </p>
+                        <p class='billing'> Billing rate: <span class='bold'> $currency $billing_rate_per_GB
+                        </span> per GB <span class="tooltip">i
+                            <span class="tooltiptext">This is the rate at which you are charged for browsing</span>
+                        </span></p>
+                        <p class='mobilebilling bold'> Billing rate <span class="tooltip">i
+                            <span class="tooltiptext">This is the rate at which you are charged for browsing</span>
+                        </span> <br /> <span> $currency $billing_rate_per_GB
+                        </span> per GB</p>
+                        <form onsubmit="return validateForm()" action="$authaction" method="get" id="loginForm">
+                            <input type="hidden" name="form_type" value="voucher_login">
+
+                            <label class='float-left mb-3'> Enter Phone Number </label>
+                            <div class=" mb-3">
+
+                                <input id="phoneNumber" required type="text" name="phone_number"
+                                    class="form-control loginCred" aria-label="Username" aria-describedby="basic-addon1"
+                                    maxlength="15" />
+
+                            </div>
+                            <label class='float-left mb-3'>Voucher code 
+                            <span class="tooltip">i
+                                <span class="tooltiptext">This is the code that was sent to your phone number</span>
+                            </span>
+                            </label>
+
+                            <div class=" mb-3">
+
+                                <input type="password" required name="voucher_code" class="form-control loginCred"
+                                    id='voucherCode' aria-label="Username" aria-describedby="basic-addon1"
+                                    maxlength="6" />
+
+                            </div>
+
+                            <p id='err' class='errorMsgs' style='display: none'> </p>
+                            <p class='errorMsgs' style="display: $display ;"> $voucher_error_message</p>
+
+
+                            <button class="btn loginBtn" id="login">
+                                Login
+                            </button>
+                            <p class='dntHave'> Don't have a valid Voucher?</p>
+
+
+                        </form>
+                        <form method="get" action="$authaction">
+                            <input type="hidden" name="form_type" value="voucher_purchase">
+                            <input type="submit" class="btn voucherBtn" value="Buy voucher">
+                        </form>
+                        <!-- <button class="btn voucherBtn">
+                        Buy Voucher
+                    </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class='footer'>
+                <div class='poweredby'>
+                    Powered by <a href="https://wicrypt.com/">
+                        <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAJcAAAAnCAYAAAACVdoMAAAABHNCSVQICAgIfAhkiAAAC6dJREFUeF7tXN1vHFcVP2dm7TgElM1DPxOIUwkeSEU3cSTES7MptZNKQJyXVkhUXUu8ZyMeEHSt2LIjXpBi/wEomxYJeKoDD3W8FdnwAKrqbTZtkRBCsl2SlISHrEE0/piZg87Mjj0f99yZ/TDYiuct3rl37j3zu7/zOx8ThB1+3ZnryRmOcZLQyBNRFhBzCJDd2BbRIgEsuv9GrANQfV/vyrUDp6Cxw7e+7ZeP236FigUyoIAybyDRMCD2t7mHOgFUTYemn3llxQPf7tVVC+wocN273jvskHEeEfNdtQJRmQx7+tDQer2r8z7mk+0IcLlM5ZiX04KKAG4D0IbbQ8CTad4zEVVNgpFdJktjreR7tj247l7vuwiAY9JWCOgmAlQNB6rPvLJSle57eAOyKyt9OceAPAHkJcARQMMAe+TZ02szyebbvUNngW0LLgbD52t7bwBALroBAloGwrJJNNUuy3z2bl+/Y0ABCAqAeDj+DJg6dPrRhV34tG+BbQkuF1irfbfUYp3Gv9C7MtWtaM8DcV+RAIoIuD9iypmDpx+da9+8j/fIbQmue7N7ioTG5eCrcXUUWoWo6PaA2HuS0MwDEach+oOgZDcHRHUEWCTk6BBuqtiOmcw2cAYBXgg9F61ju0K/vUOyLcH12bt9ecdAdonNi8YPnl4J6S4W+eiY5wGx0OrWm8J9XKXR7l3vKxPgGzwnu999vSv93WLJVte50+/fluBio3LagcDIRYW6yzAIV9JGjroXxCADw74QZSYP3JAntGd2Wat9iG9bcKm25Oa5wLwSysBHbuToMTo2KRWB5BSfPbM63b4Zd0eqLLBjwHVndu8UIpxXb4KuAjgzuvQBsxEZUHAAhhXCHYCofPDMysguTLpngR0DrrvX91IsXUAw3Wo6wo8OAfBibL5d8d49ZHEpt6uzpZgsd+Zn/T02xfJKPPSDyk9jLs2f8u5s3+JGPopoySAoRAU5z23a1llEIwtEeUCoA2CDgBZtw7xZn/3JRg2xWZ8s+9Ehi/cfv/X6D/764Mi/k7axDrRcr7y5paWiXH4s29PTG4pcg+taN3FJsqNq/Trb6t5Jki2k39fX127jwNBEHQFjmyCAa7W50rA0+PjLk0XDgFC6gO91CEc+rLxZlsYNDE1yuH82xhpAt5GgAago1Th06nc/urTISU8kauzds1oORnDHBy8VDKDz3/zqX3JHD30Kzz1xPzT9+3/7Gnxy5zAsPHi6TghTtbnSVf8GL+2BWRbvwz+/eKtVYxJRAwHrBDRjr9tX69WxhmQbd26C6nyldCrpOQNDkwx8N2qNXzTu/S3Ovrp53e4QgqoNOB08HCeGJsZanStp/eDQKRwYnJhCxJiWYaPVKqMHpElODE7eAlRlz/WgPDE0GXNv3jNoHAjyErjm3xuNlXZyg5dyJtI7Z4+/3/+d4x/AU/v1XTQff3oYflEddEFmAY5E2UdeW6IpvR0QNQBhpDY3OiMdWg9fdI7vEW378kQeQqmYzTuJYMlet3KZXrPYCSCIoFyrlFyNuWXgOqHZiEV4TEX/TKMZx16QjGOtWQf4BEd/1z2LkQ4IY2nBxWz1pb7Pr0y++kt47skwUyVB4Vd/fBF+/acXYyzbKbj85zJ7OwD1DJKSCRmE9rp9RGUjnmNgcHIREZTSwQdmVwBBULfWrVOdAlVpb2YuD7lqNnEcuPDhe6Wp6GDXDSFdkV6idDJlloTlWqWUPTE4UU0DLv/558/8Fl46+lESlpS/F9/6ISz882mwDPOIr8W6BS4XPGbmmGlbRZVXaLLcdK0yWowdQI2LCkqVroDLZVsoI9JSJyyoBZekg4Do5nxlNNY7Jd7ffAoBXK3NlWKZ8yRXmgZcQfa79Orb8PyXl0J7+/2fvwELD55i1+f+/fmvLMFLX78NT+5fDt1X+s3r8PEdJgcan58bdbP/3QKX5/rgqr1mFc2eTF1ioahnaAYktxBxs5PWtynBsm2auc2D0EWdRFBXSZy2Tu0mfXvMpROg83OlUETJUUymN/NQ92CVXtON84OAJHDxHGZv5pZbPwSAI0/8Ay699jbs27MKn/z9MEzPfhfu/yt7jQhnDHLcyNABzKFBhW8f/eiF73/rDy7IGIDTs9/zX1sKcPkCOrxrIm6nxgIiRAverv5izTowNMF5tXeU9oqIe3H/vI+IFxGZi+gmIIT0aXOdwxLI3bXxOOlSBVkJYywwii5wdBoq6uKSXKK/vlbG+a4pCVyqZ+/b88gF1/3l7DK3PauEP6+JXzK36Xyx79H+/6zu3TBjGrcYPWDBd8BBhaStWEfyetKARgdCArpdmxsNtR7JbnGTiaNY0QUZuj1KjK4bw8/eYCVJRBJRSBskucRNcIVdoxRaBw2XBC55jbBsA+aTck9N5psCoBynPfh0hUNytfZMMmLSuj13Z7N7VDKcq88c+4bPyFFQqAKrNsElsugWg0udkgCC+nyldMzf8MDgxEOVJogahHMqtbnSkY1xQ5MLKuMFwat7SRYaDZEhArrJS084FxFw2M1BIZatNWtcisyC6273hIovuslcnp6TNVJznTGd5a1NzUTtgMtbR+sHqJ0xYebSaAPfdWj1g8Jf+ydO5zqC7lMHLtZOqqQtsdBdt/oZPC4z9ZgLMfCnTFy2a0SRzQPgarpmZcJakjp+TkuZ1hHBKrtFne7dUubSodoX3KJrI5oWErGuS00bMOjABQbkleFyIKLVsYOUs+uUuXQHJ5rv0+b5VAiLgDO8VokJtZpL6Rb5gHIqSAJ5u4cuFAnKpRlPP6lcIp+uWqXUPzA42YhqCt81auYNlZjaAVcqt8pW07wo36hyKqL5gYhDdUTDTQ4TUh6AskRUEFIHrl1iolqoiChkhbb81qpbdFmrJ3NDmXIQUk5JdknSoiFwSQzjagKCc6qShJ/TkliNGUPSSrHwWpNElZgrmFPbKuaSTrTu71KN1XPdGc7Ax8T9RjAUyWmpniOnIoAT0ZFSGWXJbTXyUjjRS0qWdxVc2rBaSLT5mknSY8xeYhQUyI67brk9cG0EDmJUlnAyk4zYKrhUqYPgHEnpnKSX7UmY7iRRg5p1S92iKzo1da0YdUd8tco16sRq1G1owcUTCcXcoMtjXUOIZT9hyCUTe80qdBIttgIu92WlSIto0ipKdxpdQ7fAJUWjnWpRHh/r59K3eoS3GC3zdDI2ibk4GSmBl9nRXrOOBQHELAYrq40oqDzWgMNEDheP3RaZbjEXM5ZNRiEp36ZjnmheUWaTzplLKtPFgdx6+kIAl6ZcEXlqNAvfSqpCVdxOSkbqwOv2U63ZIxJDNbXOZUTYrHk2uwL8MZ3UFqN5vSS2a1WQd5u50oLYOwhdAlea2iE/UApf07pGVVtOEriSWn2a/1XSmL1mXfMB08zKc3PimEr7BfWNCC5uB2peZMCUqrnS+1lOA6QHR7o52nGLzKxus6CZmQp25SYfhC6BS+ueAquQKDWVaxQEdhK4+PHaLs/g+rhxz/0vueIdBkFjhttYko2oK+XwvGnyaTq3mBagErj4vaBDoU5gK5NZbAVMW+YW9RvffKzYs6XrAmgOl6KhNOBKC/6k0+j/HkwZpKV/XbSn0n+qtWydW0zHfGnt01W3yJNpUxIal+gvOMk1Sqc7Lbg8V2dWZfeUznTR7wTSgotn1xXwgy3E0koeW3C5xlNk3Dd0h9AMuAEu4SMMV5VoSg1pwbUJYqHYngpb8RPeCriaAYLYCJjYJ99GbTC4rU7BmcpEzZtasUtwXvHTsoTITPuBQYLbUHapat2drsbG3wBIvfcqC3JTHMGYqu+rVSPqaoV+q7OkdToFR6fj/6/g8gzHxeL45bcFSwv0Ik7+OkVxOVCVGvo8UDqxEoVlZMpJgpRduUGUN5CGibtPm+UVZkoE4jbeqkXGjC4H5b2w1vbrpV/iX0G5LA1Ql77yEe2rsU+IuaT3k3J8a+Bq3S48///8o9hWNrV77862wH8BQQsb8XTouzIAAAAASUVORK5CYII="
+                            height='20px' />
+                    </a>
+                </div>
+                <div class='download text-grey mt-3 mb-3'>
+                    Download Wicrypt App From
+                    <a class='appLinks' href="https://play.google.com/store/apps/details?id=com.wicrypt.app"> Google
+                        Play Store</a>
+                    or <a class='appLinks' href="https://apps.apple.com/ng/app/wicrypt/id1451821605"> Apple Store</a>
+                </div>
+
+            </div>
+            <p class='none'> wicrypt</p>
+
+        </div>
+    </div>
+    <script>
+        var phone = document.getElementById("phoneNumber")
+        var login = document.getElementById("login")
+        var voucherCode = document.getElementById('voucherCode')
+        var err = document.getElementById('err')
+        var code = ''
+        var userPhone = ''
+
+        phone.addEventListener("change", function () {
+            userPhone = phone.value
+        });
+
+        voucherCode.addEventListener("change", function () {
+            code = voucherCode.value
+        });
+
+        function validateForm() {
+            if (userPhone == '' || code.length == 0) {
+                err.innerHTML = 'Email and Code are required'
+                err.style.display = 'block';
+                return false;
+            } else
+                if (code.length !== 6) {
+                    err.innerHTML = 'Voucher code must be six digit numbers'
+                    err.style.display = 'block'
+
+                    return false;
+                } else {
+                    var node = document.createElement("div");
+                    var elips1 = document.createElement("div");
+                    elips1.className = "lds-ellipsis"
+                    var elips2 = document.createElement("div");
+                    var elips3 = document.createElement("div");
+                    var elips4 = document.createElement("div");
+                    elips1.appendChild(elips2);
+                    elips1.appendChild(elips3);
+                    elips1.appendChild(elips4);
+                    node.appendChild(elips1);
+                    login.innerHTML = '';
+                    login.appendChild(node);
+                    login.setAttribute('disabled', true);
+                    login.classList.add('disabled');
+                    err.innerHTML = '';
+                    return true;
+                }
+        };
+
+    </script>
+
+</body>
+
+</html>
