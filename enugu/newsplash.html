@@ -677,10 +677,10 @@
                         code
                         to login.
                     </p>
-                    <form onsubmit="return validateForm()" action="$authaction" class='desktopview' method="get" id="loginForm">
+                    <form onsubmit="return validateForm()" action="$authaction" method="get" id="loginForm">
                         <input type="hidden" name="tok" value="$tok">
                         <input type="hidden" name="redir" value="$redir">
-                        <div class="emailnphone">
+                        <div>
                             <div>
                                 <label class='mb-3 float-left'> Enter email address </label>
                                 <div class=" mb-3">
@@ -690,11 +690,12 @@
     
                                 </div>
                             </div>
+                            
                            <div>
                                 <label class='mb-3 float-left'> Enter phone number </label>
                                 <div class=" mb-3">
 
-                                    <input id="wicryptEmail" type="phoneNumber" 
+                                    <input id="wicryptPhone" type="phoneNumber" 
                                         name="phoneNumber" class="form-control loginCred"
                                         aria-label="Username" aria-describedby="basic-addon1" maxlength="32" />
 
@@ -702,6 +703,7 @@
                            </div>
                             
                         </div>
+                        
                         <label class='float-left mb-3'> Enter router code
                             <span class="tooltip">i
                                 <span class="tooltiptext">This code is generated for you on the wicrypt app</span>
@@ -711,7 +713,7 @@
                         <div class=" mb-3">
 
                             <input type="password" name="password" class="form-control loginCred" id='routerCode'
-                                aria-label="Username" aria-describedby="basic-addon1" maxlength="6" />
+                                aria-label="Username" aria-describedby="basic-addon1" />
 
                         </div>
 
@@ -727,7 +729,7 @@
 
                     </form>
 
-                    <form onsubmit="return validateForm()" class="mobileSlide" action="$authaction" method="get" id="loginForm">
+                    <!-- <form onsubmit="return validateForm()" class="mobileSlide" action="$authaction" method="get" id="loginForm">
                         <input type="hidden" name="tok" value="$tok">
                         <input type="hidden" name="redir" value="$redir">
                         <div >
@@ -778,7 +780,7 @@
                         <p class='dntHave'> Don't have Wicrypt App?</p>
  
 
-                    </form>
+                    </form> -->
 
 
 
