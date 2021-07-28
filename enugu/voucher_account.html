@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$gatewayname</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #f4f4f4;
+        font-style: normal;
+        font-weight: normal;
+        background-image: url("$router_base_url/$backgroundimage");
+        background-repeat: no-repeat;
+      }
+      .logo{
+        height: 50px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-green {
+        color: #007e21;
+      }
+      .text-black {
+        color: #1d1d1d;
+      }
+      .text-grey {
+        color: #6b6b6b;
+      }
+      .text-red {
+        color: rgb(243, 75, 75);
+      }
+      .t-10 {
+        font-size: 10px;
+      }
+      .t-12 {
+        font-size: 12px;
+      }
+      .t-14 {
+        font-size: 14px;
+      }
+      .t-20 {
+        font-size: 20px;
+      }
+      .t-42 {
+        font-size: 42px;
+      }
+      .ln-h-40 {
+        line-height: 40px;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .container {
+        padding: 1rem;
+      }
+      .mb-0 {
+        margin-bottom: 0px;
+      }
+      .mb-3 {
+        margin-bottom: 3rem;
+      }
+      .mt-0 {
+        margin-top: 0px;
+      }
+      .mt-3 {
+        margin-top: 3rem;
+      }
+      .card {
+        background: #ffffff;
+        padding: 1.25rem 2.25rem;
+        box-shadow: 0px 1px 8px #dcdcdc;
+        border-radius: 10px;
+        opacity: 1;
+      }
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #b9b9b9;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      .btn {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      .loginBtn {
+        font-size: 15px;
+        width: 100%;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+        background-color: #007e21;
+        font-weight: bold;
+        padding: 10px;
+      }
+      .voucherBtn {
+        font-size: 15px;
+        font-weight: bold;
+        width: 100%;
+        border-radius: 50px;
+        cursor: pointer;
+        border: 1px solid #007e21;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: #007e21;
+        background-color: #ffffff;
+        padding: 10px;
+      }
+
+      .errorMsgs {
+        font-size: 12px;
+        padding: 5px;
+        text-align: center;
+        background: rgba(235, 87, 87, 0.4);
+        border-radius: 12px;
+        color: #1d1d1d;
+      }
+
+      .appLinks {
+        background: #fafbfc;
+        border-radius: 40px;
+        text-decoration: none;
+        color: #040415;
+        padding: 12px 16px;
+        margin: 0px 5px;
+      }
+
+      .backBtn {
+        text-decoration: none;
+        font-size: 12px;
+        color: #007e21;
+      }
+
+      .congrats {
+        font-size: 50px;
+        color: #66bb2f;
+        margin-bottom: 0px;
+      }
+      .updownloads {
+        border-top: 1px solid #dcdcdc;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+      }
+      .note{
+          background-color: #F5F4F4;
+          padding: 15px;
+           border-radius: 8px;
+        }
+
+      @media (min-width: 769px) {
+        .container {
+          padding: 5rem;
+        }
+        .ad-container {
+          width: 60%;
+          float: left;
+        }
+        .card-container {
+          width: 40%;
+          float: left;
+        }
+        .summary {
+          padding-right: 21rem;
+          line-height: 27px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="container">
+        <div class="ad-container">
+          <div class="mt-3">
+            <h2 class="t-42">
+              Share Data and <br />
+              Earn Money
+            </h2>
+            <p class="t-20">Start your own hotspot buisness.</p>
+          </div>
+          <div class="mt-3">
+            <p class="t-14 summary">
+              Get the Enugu Wi-Fi device and bill users when they connect to
+              your internet network at any rate of your choice. visit
+              <a href="https://enuguwifi.com/" class="text-red" target="_blank">
+                www.enuguwifi.com
+              </a>
+              today to get started
+            </p>
+          </div>
+        </div>
+        <div class="card-container">
+          <div class="card">
+            <div class="goHome">
+              <a class="backBtn text-green" href="/"> < Home</a>
+            </div>
+            <div class="text-center">
+              <p class="text-black t-14 bold">
+                <span class="gatewayName bold"> Voucher Payment Details</span>
+              </p>
+              <p class="t-12 mb-3">
+                Make a bank transfor of
+                <span> $currency $voucher_amount</span> to the following account
+                details
+              </p>
+            </div>
+
+            <div>
+              <p class="t-12 mb-0">Bank</p>
+              <p class="bold t-14 mt-0">$voucher_bank</p>
+            </div>
+            <div>
+              <p class="t-12 mb-0">Account Number</p>
+              <p class="bold t-14 mt-0">$voucher_account_number</p>
+            </div>
+            <div class=" mb-3">
+              <p class="t-12 mb-0">Account Name</p>
+              <p class="bold t-14 mt-0">$voucher_account_name</p>
+            </div>
+            <div class="note t-12">
+              <p>NOTE:</p>
+              This transaction attracts a bank charge of 0.75% per transaction.
+              This is a unique account number assigned only to your phone number
+            </div>
+            <p class="t-12 text-center">Already have a voucher?</p>
+
+            <form method="get" action="$authaction">
+              <input type="hidden" name="form_type" value="voucher_login" />
+              <input type="submit" class="btn voucherBtn" value="Login Here" />
+            </form>
+          </div>
+        </div>
+        <div>
+          <p class="t-10 text-grey mb-0">
+            Powered by
+            <a href="https://wicrypt.com/" target="_blank">
+              <img
+                src="data:image/png;base64, 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"
+                height="20px"
+              />
+            </a>
+          </p>
+          <p class="t-12 ln-h-40">
+            Download Wicrypt app from:
+            <a
+              class="appLinks"
+              target="_blank"
+              href="https://play.google.com/store/apps/details?id=com.wicrypt.app"
+            >
+              Google Play</a
+            >
+            <a
+              class="appLinks"
+              target="_blank"
+              href="https://apps.apple.com/ng/app/wicrypt/id1451821605"
+            >
+              Apple Store</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
