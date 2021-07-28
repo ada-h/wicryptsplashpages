@@ -319,5 +319,53 @@
         </div> 
       </div>
     </div>
+    <script>
+      var phone = document.getElementById("phoneNumber")
+      var login = document.getElementById("login")
+      var voucherCode = document.getElementById('voucherCode')
+      var err = document.getElementById('err')
+      var code = ''
+      var userPhone = ''
+
+      phone.addEventListener("change", function () {
+          userPhone = phone.value
+      });
+
+      voucherCode.addEventListener("change", function () {
+          code = voucherCode.value
+      });
+
+      function validateForm() {
+          if (userPhone == '' || code.length == 0) {
+              err.innerHTML = 'Email and Code are required'
+              err.style.display = 'block';
+              return false;
+          } else
+              if (code.length !== 6) {
+                  err.innerHTML = 'Voucher code must be six digit numbers'
+                  err.style.display = 'block'
+
+                  return false;
+              } else {
+                  var node = document.createElement("div");
+                  var elips1 = document.createElement("div");
+                  elips1.className = "lds-ellipsis"
+                  var elips2 = document.createElement("div");
+                  var elips3 = document.createElement("div");
+                  var elips4 = document.createElement("div");
+                  elips1.appendChild(elips2);
+                  elips1.appendChild(elips3);
+                  elips1.appendChild(elips4);
+                  node.appendChild(elips1);
+                  login.innerHTML = '';
+                  login.appendChild(node);
+                  login.setAttribute('disabled', true);
+                  login.classList.add('disabled');
+                  err.innerHTML = '';
+                  return true;
+              }
+      };
+
+  </script>
   </body>
 </html>

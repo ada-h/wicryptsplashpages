@@ -307,5 +307,27 @@
         </div>
       </div>
     </div>
+    <script>
+
+      function validateForm() {
+          var node = document.createElement("div");
+          var elips1 = document.createElement("div");
+          elips1.className = "lds-ellipsis"
+          var elips2 = document.createElement("div");
+          var elips3 = document.createElement("div");
+          var elips4 = document.createElement("div");
+          elips1.appendChild(elips2);
+          elips1.appendChild(elips3);
+          elips1.appendChild(elips4);
+          node.appendChild(elips1);
+          login.innerHTML = '';
+          login.appendChild(node);
+          login.setAttribute('disabled', true);
+          login.classList.add('disabled');
+          err.innerHTML = '';
+          return true;
+      };
+
+  </script>
   </body>
 </html>
