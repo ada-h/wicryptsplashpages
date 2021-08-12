@@ -350,8 +350,8 @@
               err.style.display = 'block';
               return false;
           } else
-              if (code.length !== 6) {
-                  err.innerHTML = 'Voucher code must be six digit numbers'
+              if (code.length > 24 ) {
+                  err.innerHTML = 'Voucher code is invalid'
                   err.style.display = 'block'
 
                   return false;
