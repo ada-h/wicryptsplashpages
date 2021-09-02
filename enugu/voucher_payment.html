@@ -24,6 +24,9 @@
         background-image: url("$router_base_url/$imageone");
         background-repeat: no-repeat;
       }
+      a{
+        text-decoration: none !important;
+      }
       .logo{
         height: 50px;
       }
@@ -228,9 +231,9 @@
 
                     </div>
                     <label class="t-12">Phone Number
-                        <span class="tooltip">i
+                        <!-- <span class="tooltip">i
                             <span class="tooltiptext">Your voucher code will be sent to this phone number</span>
-                        </span>
+                        </span> -->
                     </label> 
 
                     <div class=" mb-3">
@@ -247,6 +250,11 @@
                     <button class="btn loginBtn" id="login">
                        Pay
                     </button>
+                    <p class="t-10 text-center mb-0"> or</p>
+                    <a class="btn loginBtn" href="https://34.122.233.50/paycrypt" target="_blank">
+                            Pay with Card
+                    </a>
+                
                     <p class="t-10 text-center mb-0"> Already have a voucher?</p>
 
                 </form>
