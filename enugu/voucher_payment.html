@@ -251,21 +251,18 @@
                        Pay
                     </button>
                     <p class="t-10 text-center mb-0"> or</p>
-                   
-                </form>
-                <form action="$paywithcard" method="get">
-                    <button class="btn loginBtn">
-                        <a class="loginBtn" href="https://34.122.233.50/paycrypt" target="_blank">
-                            Pay with Card
-                        </a>
-                    </button>
-                    <input type="hidden" name="form_type" value="card_purchase">
+                    <button class="btn loginBtn" id="login">
+                          
+                      Pay with Card
+                     
+                  </button>
+                  <p class='dntHave'> Already have a voucher?</p>
                 </form>
                 <p class='dntHave'> Already have a voucher?</p>
                 <form method="get" action="$authaction">
                     <input type="hidden" name="form_type" value="voucher_login">
                     <input type="submit" class="btn voucherBtn" value="Login With Voucher">
-                   
+                    <input type="hidden" name="form_type" value="card_purchase">
                 </form> 
                 </div>
             </div>
